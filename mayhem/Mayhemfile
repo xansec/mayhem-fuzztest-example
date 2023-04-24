@@ -8,7 +8,7 @@ advanced_triage: false
 
 # List of commands used to test the target
 cmds:
-  - cmd: /fuzztest_calculator --fuzz=CalculatorFuzzTest.test_cancel_divisor --
+  - cmd: /fuzztest_calculator --fuzz=CalculatorFuzzTest.test_multiply_commutes --
     libfuzzer: true
     sanitizer: true
 
