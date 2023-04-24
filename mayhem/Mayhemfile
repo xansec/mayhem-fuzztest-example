@@ -1,0 +1,16 @@
+project: calculator
+
+# Target name (should be unique within the project)
+target: fuzztest-calculator-cmake
+
+#image: ghcr.io/xansec/calculator-fuzz:cmake
+
+# Turns on extra test case processing (completing a run will take longer)
+advanced_triage: false
+
+# List of commands used to test the target
+cmds:
+  - cmd: /fuzztest_calculator --fuzz=CalculatorFuzzTest.test_cancel_divisor --
+    libfuzzer: true
+    sanitizer: true
+
