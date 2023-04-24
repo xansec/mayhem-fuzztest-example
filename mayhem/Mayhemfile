@@ -3,8 +3,6 @@ project: calculator
 # Target name (should be unique within the project)
 target: fuzztest-calculator-cmake
 
-#image: ghcr.io/xansec/calculator-fuzz:cmake
-
 # Turns on extra test case processing (completing a run will take longer)
 advanced_triage: false
 
