@@ -30,8 +30,21 @@ void test_factor_game(int x, int y) {
   EXPECT_EQ(factor_game(x,y), 0);
 }
 
-FUZZ_TEST(CalculatorFuzzTest, test_add_commutes);
-FUZZ_TEST(CalculatorFuzzTest, test_add_subtract);
-FUZZ_TEST(CalculatorFuzzTest, test_multiply_commutes);
-FUZZ_TEST(CalculatorFuzzTest, test_cancel_divisor);
+void test_all(int x, int y) {
+  int choice = x % 5;
 
+  switch(choice) 
+  {
+    case 0: test_add_commutes(x, y); break;
+    case 1: test_add_subtract(x, y); break;
+    case 2: test_multiply_commutes(x, y); break;
+    case 3: test_cancel_divisor(x); break;
+    case 4: test_factor_game(x, y); break;
+  }
+}
+
+//FUZZ_TEST(CalculatorFuzzTest, test_add_commutes);
+//FUZZ_TEST(CalculatorFuzzTest, test_add_subtract);
+//FUZZ_TEST(CalculatorFuzzTest, test_multiply_commutes);
+//FUZZ_TEST(CalculatorFuzzTest, test_cancel_divisor);
+FUZZ_TEST(CalculatorFuzzTest, test_all);
